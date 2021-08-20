@@ -33,7 +33,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('username', models.CharField(max_length=32)),
-                ('password', models.CharField(max_length=32)),
+                ('password', models.CharField(max_length=1000)),
                 ('reviews', django.contrib.postgres.fields.ArrayField(base_field=models.CharField(max_length=200), blank=True, size=None)),
             ],
         ),

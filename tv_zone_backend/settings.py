@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['localhost', 'blooming-thicket-84174.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'bcrypt',
     'corsheaders',
     'rest_framework',
     'tv_zone',
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tv_zone_backend'
 ]
 
 MIDDLEWARE = [
@@ -96,6 +98,13 @@ DATABASES = {
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env)
 
+# Bcrypt password Hashers
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

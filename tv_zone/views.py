@@ -39,10 +39,10 @@ def check_login(request):
     if request.method == 'PUT':
 
         jsonRequest = json.loads(request.body) # makee the request json format
-        user = jsonRequest['user'] # gets user from the request
+        username = jsonRequest['username'] # gets user from the request
         password = jsonRequest['password'] # gets password from the request
-        if UserAccount.objects.get(username=username): # see if user exists in debug
-            user = UserAccount.objects.get(username=username) # find user object with matching user
+        if Users.objects.get(username=username): # see if user exists in debug
+            user = Users.objects.get(username=username) # find user object with matching user
             if check_password(password, user.password):  # checks if password matches
                 return JsonResponse({'id': user.id, 'username': user.username}) # if passwords match, return a user dictionary
             else: # returns empty object if passwords don't match

@@ -16,5 +16,5 @@ class Shows(models.Model):
 
 class Users(models.Model):
     username = models.CharField(max_length=75, unique=True)
-    password = models.CharField(max_length=1000)
+    password = models.CharField(max_length=10000)
     # reviews = ArrayField(models.CharField(max_length=200, blank=True))
